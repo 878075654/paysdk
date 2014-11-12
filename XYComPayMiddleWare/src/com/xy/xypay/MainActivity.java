@@ -60,13 +60,13 @@ public class MainActivity extends Activity{
 				   //初始化测试数据
 					PayArgs payArg = new PayArgs();
 				 
-					payArg.platform ="lol";//用于用户中心校验token
+//					payArg.platform ="lol";//用于用户中心校验token
 					payArg.sid = "1";//区服ID
 					payArg.pay_rmb = "6";//充值金额
 					payArg.imei = "99000316884451";//设备号
 					payArg.resource_id = "1123107";//应用的appid
 					
-					payArg.token = "d174ebf344be3713a1c8b5fe722ae872";//签名（key+time+resource_id）用户中心登录的token
+//					payArg.token = "d174ebf344be3713a1c8b5fe722ae872";//签名（key+time+resource_id）用户中心登录的token
 					payArg.openuid = "a19fa46e795097c3bc458e88fc88aa9a";//平台UID（可以带竖线+角色id，例如:openuid|role_id）
 					
 					//以下参数是充值卡用到的1移动,2联通,3电信
