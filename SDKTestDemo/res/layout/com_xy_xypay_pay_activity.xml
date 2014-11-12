@@ -1,0 +1,253 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootview_rlayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    tools:context=".XYPayCenterActivity" >
+
+    <!-- 标题title -->
+
+    <RelativeLayout
+        android:id="@+id/title_rlayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/com_xy_xypay_header_bg" >
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/com_xy_xypay_back_btn_selector" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" >
+
+            <ImageView
+                android:id="@+id/logiv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/com_xy_xypay_logo_xy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/logiv"
+                android:text="xy支付"
+                android:textColor="#ffffff"
+                android:textSize="17sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!-- 主界面展示区域 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_rlayout" >
+
+        <ScrollView
+            android:id="@+id/radiogroup"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scrollbars="@null" >
+
+            <!-- 左边侧导航栏 -->
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#f4eade" >
+
+                <RelativeLayout
+                    android:id="@+id/creditcard_rlayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/com_xy_xypay_side_on_bg" >
+
+                    <Button
+                        android:id="@+id/creditcardbtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@null"
+                        android:text="信用卡"
+                        android:textColor="#764919"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_toRightOf="@+id/creditcardbtn"
+                        android:src="@drawable/com_xy_xypay_creditcard_shorticon" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/alipayrbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/creditcard_rlayout"
+                    android:layout_centerHorizontal="true"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="支付宝"
+                    android:textColor="#764919"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/moninerbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/alipayrbtn"
+                    android:layout_centerHorizontal="true"
+                    android:background="@null"
+                    android:text="先玩后付"
+                    android:textColor="#764919"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/depositcardrbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/moninerbtn"
+                    android:layout_centerHorizontal="true"
+                    android:background="@null"
+                    android:text="储蓄卡"
+                    android:textColor="#764919"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/rechargeablecardrbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/depositcardrbtn"
+                    android:layout_centerHorizontal="true"
+                    android:background="@null"
+                    android:text="充值卡"
+                    android:textColor="#764919"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/junwangcardrbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rechargeablecardrbtn"
+                    android:layout_centerHorizontal="true"
+                    android:background="@null"
+                    android:text="骏网卡"
+                    android:textColor="#764919"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/invisiblecardrbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/junwangcardrbtn"
+                    android:layout_centerHorizontal="true"
+                    android:background="@null"
+                    android:textColor="#764919"
+                    android:textSize="15sp"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+        </ScrollView>
+        <!-- 右侧对应的显示区域     信用卡支付对应的视图 -->
+
+        <RelativeLayout
+            android:id="@+id/creditcard_paynum_rlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@+id/radiogroup"
+            android:background="@drawable/com_xy_xypay_left_bg" >
+
+            <EditText
+                android:id="@+id/input_paynum_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/com_xy_xypay_input_bg"
+                android:gravity="right|center_vertical"
+                android:hint="充值金额"
+                android:inputType="number"
+                android:maxLength="4"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:singleLine="true"
+                android:textColor="#ff0000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textyuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/input_paynum_edittext"
+                android:text="元"
+                android:textColor="#5d5d5d"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/exchangetextlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="50元=500蓝钻"
+                android:textColor="#5d5d5d"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/securityiv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/com_xy_xypay_btn_securityicon" />
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/creditcard_rlayout_include"
+            layout="@layout/xypay_creditcard_rlayout_include" />
+        <!-- 支付宝支付的视图 -->
+
+        <include
+            android:id="@+id/alipay_rlayout_include"
+            layout="@layout/xypay_alipay_rlayout_include" />
+        <!-- mo9支付的视图 -->
+
+        <include
+            android:id="@+id/mo9_rlayout_include"
+            layout="@layout/xypay_mo9_rlayout_include" />
+
+        <!-- 储蓄卡支付的视图 -->
+
+        <include
+            android:id="@+id/deposit_rlayout_include"
+            layout="@layout/xypay_deposit_rlayout_include" />
+
+        <!-- 充值卡 -->
+
+        <include
+            android:id="@+id/rechargecard_rlayout_include"
+            layout="@layout/xypay_rechargecard_rlayout_include" />
+
+        <!-- 骏网卡 -->
+
+        <include
+            android:id="@+id/junwang_rlayout_include"
+            layout="@layout/xypay_junwang_rlayout_include" />
+    </RelativeLayout>
+
+</RelativeLayout>

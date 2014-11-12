@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_toRightOf="@+id/radiogroup"
+     android:layout_marginTop="70dp"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/deposit_textview_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="目前仅支持以下银行的储蓄卡"
+        android:textColor="#5d5d5d"
+        android:textSize="15sp" />
+
+    <GridView
+        android:id="@+id/deposit_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deposit_textview_paydescription"
+        android:layout_below="@+id/deposit_textview_text"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="4dp"
+        android:columnWidth="100dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp" />
+
+    <TextView
+        android:id="@+id/deposit_textview_paydescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deposit_submitpaybtn"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="单笔金额超过2000元时,请使用其它支付方式"
+        android:textColor="#5d5d5d"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/deposit_submitpaybtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/com_xy_xypay_pay_btn_selector"
+        android:text="确定付款"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+</RelativeLayout>

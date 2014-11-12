@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/com_xy_xypay_bankitem_bg"
+     >
+ <ImageView
+       android:layout_centerVertical="true"
+     android:layout_marginLeft="8dp" 
+     android:id="@+id/bankiv"
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     />
+ <TextView 
+     android:layout_marginLeft="8dp"
+     android:id="@+id/banktv"
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:layout_toRightOf="@+id/bankiv"
+     android:textSize="15sp"
+     android:textColor="#5d5d5d"
+     />
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/alipay-c51f8f28f9258072c6bab1f2318fafef.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/android-support-v7-appcompat-7c9420a1065d5dc41e890ba16e2598e4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/UPPayPluginEx-98f345c4dcf424cb77976cd653ba7df6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/mokredit-491dfe55e8f01e206570c1f05ae43083.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/android-support-v4-a790a1b28ef1119867ee4714c8bebad4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/appcompat_v7_2-3910d2a0120d879b12738c162745da2c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/UPPayAssistEx-6ca08d12b6246913f21d3e682f1dbc47.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/XYSDK-30f9222d8c9efb29918940172e9c9f0b.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

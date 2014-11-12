@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SDKTestDemo/libs/android-support-v4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SDKTestDemo/libs/alipay.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SDKTestDemo/libs/UPPayPluginEx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SDKTestDemo/libs/UPPayAssistEx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SDKTestDemo/libs/XYSDK.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SDKTestDemo/libs/mokredit.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

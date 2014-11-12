@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="libs1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/XYComPayMiddleWare/libs/UPPayPluginEx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/XYComPayMiddleWare/libs/annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/XYComPayMiddleWare/libs/mokredit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/XYComPayMiddleWare/libs/UPPayAssistEx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/XYComPayMiddleWare/libs/alipay.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

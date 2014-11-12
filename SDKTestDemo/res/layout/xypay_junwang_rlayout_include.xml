@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_toRightOf="@+id/radiogroup"
+    android:layout_marginTop="70dp"
+    android:visibility="gone" >
+
+    <ScrollView
+        android:id="@+id/junwang_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/junwang_submitpaybtn"
+        android:layout_alignParentTop="true"
+        android:scrollbars="@null" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <!-- 支付金额 -->
+            <LinearLayout
+                android:id="@+id/junwang_linar1"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/com_xy_xypay_input_bg"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="卡    号:"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/junwang_input_cardno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="请输入充值卡号"
+                    android:inputType="phone"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:textColor="#a0a0a0"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/junwang_linar2"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/junwang_linar1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/com_xy_xypay_input_bg"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="密    码:"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/junwang_input_cardpwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="请输入充值密码"
+                    android:inputType="phone"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:textColor="#a0a0a0"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/junwang_submitpaybtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/com_xy_xypay_pay_btn_selector"
+        android:text="确定付款"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+</RelativeLayout>
