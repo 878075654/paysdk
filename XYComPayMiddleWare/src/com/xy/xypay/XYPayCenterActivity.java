@@ -2,16 +2,10 @@ package com.xy.xypay;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Iterator;
+
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+
 
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
@@ -115,7 +109,10 @@ public class XYPayCenterActivity extends Activity {
 	// 转换比例
 	private TextView exchangetextlabel;
 	private TextView textyuan;
-
+	//一块钱人民币对应的游戏币
+	private int rmb_ratio=10;
+	//游戏币名称
+	private  String game_currency_name="蓝钻";
 	/******************* 信用卡支付按钮对应的支付界面 ************************/
 	private View creditcardViewInclude;
 	private RelativeLayout creditcard_rlayout;
@@ -204,7 +201,7 @@ public class XYPayCenterActivity extends Activity {
 	private static final int JUNWANG_CARD_RESULT_CODE = 5000;
 	private PayArgs payArgs;
 	// mog成功支付
-	private String url_mo9_success = "";
+//	private String url_mo9_success = "";
 
 	// 初始化SDK设置
 	private void initSDK() {
@@ -220,6 +217,8 @@ public class XYPayCenterActivity extends Activity {
 		}
 		path = domain;
 		StringUtils.printLog(isDebug, "支付环境地址", path);
+		//获取应用resouceid
+		getPayResourceidMessage();
 	}
 
 	private Handler handler = new Handler() {
@@ -277,7 +276,7 @@ public class XYPayCenterActivity extends Activity {
 									mktPluginSetting);
 							startActivityForResult(intent, 100);
 							//pengsk 2014.11.11 这是获得mo9支付后返回的url
-							url_mo9_success = jsonObject.getString("url");
+//								url_mo9_success = jsonObject.getString("url");
 							break;
 						default:
 							DialogUtils.showToast(XYPayCenterActivity.this,
@@ -391,11 +390,11 @@ public class XYPayCenterActivity extends Activity {
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
 				if ("".equals(s.toString().trim()) || s == null) {
-					exchangetextlabel.setText("50元=500蓝钻");
+					exchangetextlabel.setText("50元=500"+game_currency_name);
 				} else {
 					int price = Integer.parseInt(s.toString());
-					exchangetextlabel.setText(price + "元=" + (price * 10)
-							+ "蓝钻");
+					exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
+							+ game_currency_name);
 				}
 			}
 
@@ -575,8 +574,8 @@ public class XYPayCenterActivity extends Activity {
 									.toString().trim())) {
 						int price = Integer.parseInt(input_paynum_edittext
 								.getText().toString().trim());
-						exchangetextlabel.setText(price + "元=" + (price * 10)
-								+ "蓝钻");
+						exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
+								+ game_currency_name);
 					} else {
 						exchangetextlabel.setText("50元=500蓝钻");
 					}
@@ -610,8 +609,8 @@ public class XYPayCenterActivity extends Activity {
 									.toString().trim())) {
 						int price = Integer.parseInt(input_paynum_edittext
 								.getText().toString().trim());
-						exchangetextlabel.setText(price + "元=" + (price * 10)
-								+ "蓝钻");
+						exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
+								+ game_currency_name);
 					} else {
 						exchangetextlabel.setText("50元=500蓝钻");
 					}
@@ -644,8 +643,8 @@ public class XYPayCenterActivity extends Activity {
 									.toString().trim())) {
 						int price = Integer.parseInt(input_paynum_edittext
 								.getText().toString().trim());
-						exchangetextlabel.setText(price + "元=" + (price * 10)
-								+ "蓝钻");
+						exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
+								+ game_currency_name);
 					} else {
 						exchangetextlabel.setText("50元=500蓝钻");
 					}
@@ -682,8 +681,8 @@ public class XYPayCenterActivity extends Activity {
 									.toString().trim())) {
 						int price = Integer.parseInt(input_paynum_edittext
 								.getText().toString().trim());
-						exchangetextlabel.setText(price + "元=" + (price * 10)
-								+ "蓝钻");
+						exchangetextlabel.setText(price + "元=" + (price *rmb_ratio)
+								+ game_currency_name);
 					} else {
 						exchangetextlabel.setText("50元=500蓝钻");
 					}
@@ -724,7 +723,7 @@ public class XYPayCenterActivity extends Activity {
 					textyuan.setVisibility(View.GONE);
 
 					exchangetextlabel.setText(chargeCount + "元="
-							+ (Integer.parseInt(chargeCount) * 10) + "蓝钻");
+							+ (Integer.parseInt(chargeCount) * rmb_ratio) + game_currency_name);
 					payType = "oneninemobilepay";
 					rechargecardViewInclude.setVisibility(View.VISIBLE);
 					rechargeablecardrbtn.setBackgroundResource(ResourceUtil
@@ -757,8 +756,8 @@ public class XYPayCenterActivity extends Activity {
 									.toString().trim())) {
 						int price = Integer.parseInt(input_paynum_edittext
 								.getText().toString().trim());
-						exchangetextlabel.setText(price + "元=" + (price * 10)
-								+ "蓝钻");
+						exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
+								+ game_currency_name);
 					} else {
 						exchangetextlabel.setText("50元=500蓝钻");
 					}
@@ -826,7 +825,7 @@ public class XYPayCenterActivity extends Activity {
 										Integer price = Integer
 												.parseInt(chargeCount);
 										exchangetextlabel.setText(price + "元="
-												+ (price * 10) + "蓝钻");
+												+ (price * rmb_ratio) + game_currency_name);
 										Log.e("chargeCount", chargeCount);
 										rechargecard_textview_paycount
 												.setText("面    值:"
@@ -1069,7 +1068,7 @@ public class XYPayCenterActivity extends Activity {
 			return;
 		}
 		/*
-		 * 支付控件返回字符串:success、fail、cancel 分别代表支付成功，支付失败，支付取消
+		 * 支付控件返回字符串:success、fail、cancel 分别代表支付成功，支付失败，支付取消  此处是银联支付的返回值，
 		 */
 		String str = data.getExtras().getString("pay_result");
 		if (str.equalsIgnoreCase("success")) {
@@ -1084,7 +1083,12 @@ public class XYPayCenterActivity extends Activity {
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {// 补货回退键
-			if ((dialog == null) || !dialog.isShowing()) {
+
+			if(getWindow().getAttributes().softInputMode==WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED){
+				//隐藏软键盘
+				getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+				getWindow().getAttributes().softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED;
+			}else if ((dialog == null) || !dialog.isShowing()) {
 				alertDialog = DialogUtils.createConfirmExitDialog(
 						XYPayCenterActivity.this, mPayCallback, status);
 				alertDialog.show();
@@ -1138,6 +1142,7 @@ public class XYPayCenterActivity extends Activity {
 
 				String result = HttpUtils.doGetRequest(
 						XYPayUtiles.genHttpPath(payArgs, path, payType),
+		
 						isDebug);
 				Message message = Message.obtain(handler);
 				message.what = messagwhat;// 各种支付的返回值
@@ -1180,7 +1185,7 @@ public class XYPayCenterActivity extends Activity {
 				AliPay alipay = new AliPay(
 						XYPayCenterActivity.this, handler);
 				// 设置为沙箱模式，不设置默认为线上环境
-				// alipay.setSandBox(isDebug);
+		// alipay.setSandBox(isDebug);
 				String result = alipay.pay(info);
 				StringUtils.printLog(isDebug, "支付返回的数据",
 						"result = " + result);
@@ -1192,6 +1197,45 @@ public class XYPayCenterActivity extends Activity {
 				}
 			}
 		}.start();
+	}
+	private void getPayResourceidMessage(){
+		new Thread(){
+			@Override
+			public void run() {
+				payArgs=XYPaySDK.getPayAgs();
+				String url="";
+				if (isDebug){
+					url="http://cn.passport.xyandroid.com/inapi/gamePayInfo/";
+				}else {
+					url=HttpUtils.resourceidMessageUrl;
+				}
+			String result=	HttpUtils.doPostRequest(url, isDebug, XYPayUtiles.genResourceidMessageParams(payArgs));
+				StringUtils.printLog(isDebug, "返回的resouceid结果",result);
+				splitJsonResouceid(result);
+			}
+		}.start();
+	}
+	private  void splitJsonResouceid(String result){
+		try{
+			if(result==""){
+
+			}
+			JSONObject jsonObject2 = new JSONObject(result);
+				int ret=jsonObject2.getInt("ret");
+			if(ret==0){
+				//成功
+				JSONObject jso=jsonObject2.getJSONObject("data");
+				payArgs.resource_id=jso.getString("resource_id");
+				rmb_ratio=Integer.parseInt(jso.getString("rmb_ratio"));
+				game_currency_name=jso.getString("game_currency_name");
+			}else {
+				//失败
+				DialogUtils.showToast(this,jsonObject2.getString("msg"));
+			}
+		}catch (JSONException e){
+			DialogUtils.showToast(this,"返回数据错误");
+e.printStackTrace();
+		}
 	}
 	// //加载支付成功网页
 	// private void startLodingSuccess(String url){

@@ -59,20 +59,26 @@ public class MainActivity extends Activity{
 			public void onClick(View v) {
 				   //初始化测试数据
 					PayArgs payArg = new PayArgs();
-				 
-//					payArg.platform ="lol";//用于用户中心校验token
-					payArg.sid = "1";//区服ID
-					payArg.pay_rmb = "6";//充值金额
-					payArg.imei = "99000316884451";//设备号
-					payArg.resource_id = "1123107";//应用的appid
-					
-//					payArg.token = "d174ebf344be3713a1c8b5fe722ae872";//签名（key+time+resource_id）用户中心登录的token
-					payArg.openuid = "a19fa46e795097c3bc458e88fc88aa9a";//平台UID（可以带竖线+角色id，例如:openuid|role_id）
-					
-					//以下参数是充值卡用到的1移动,2联通,3电信
-					payArg.pay_type = "1";
-					payArg.card_id = "";//car no
-					payArg.card_pass = "";//card pwd
+					payArg.gid="1";//应用app
+					payArg.sid="1";//区服；
+				payArg.app_callback_url="";//发货地址
+				payArg.openuid="a19fa46e795097c3bc458e88fc88aa9a";//平台UID
+				payArg.appExtra1="";
+				payArg.appExtra2="";
+				//下面是测试临时用的
+				payArg.resource_id = "1123107";//应用的appid
+
+//					payArg.sid = "1";//区服ID
+//					payArg.pay_rmb = "6";//充值金额
+//					payArg.imei = "99000316884451";//设备号
+//					payArg.resource_id = "1123107";//应用的appid
+//
+//					payArg.openuid = "a19fa46e795097c3bc458e88fc88aa9a";//平台UID（可以带竖线+角色id，例如:openuid|role_id）
+//
+//					//以下参数是充值卡用到的1移动,2联通,3电信
+//					payArg.pay_type = "1";
+//					payArg.card_id = "";//car no
+//					payArg.card_pass = "";//card pwd
 					
 					//初始支付对象
 					XYPaySDK.initPayArgs(payArg);

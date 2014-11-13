@@ -9,6 +9,14 @@ import java.io.Serializable;
 public class PayArgs implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
+     * 游戏id等同resousid第三方传入
+     */
+    public String gid;
+    /**
+     * 发货地址
+     */
+    public  String app_callback_url;
+    /**
      *资源编号（必填）
      */
     public String resource_id="";
@@ -73,16 +81,15 @@ public class PayArgs implements Serializable {
      */
     public String bindid="";
     
-    /**
-     * token验证,通过getToken()方法得到（必填）
-     */
-    public String token = "";
-    
-    /**
-     * platform平台，通过getPlatform()方法获得（比填）
-     */
- 
-    public String platform = "";
+//    /**
+//     * token验证,通过getToken()方法得到（必填）
+//     */
+//    public String token = "";
+//    /**
+//     * platform平台，通过getPlatform()方法获得（比填）
+//     */
+//
+//    public String platform = "";
     
     /**
      * 额外扩展参数1
