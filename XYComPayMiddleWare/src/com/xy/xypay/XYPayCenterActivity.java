@@ -564,6 +564,12 @@ public class XYPayCenterActivity extends Activity {
 	}
 
 	private void initListeners() {
+		input_paynum_edittext.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				getWindow().getAttributes().softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED;
+			}
+		});
 		// 支付方式导航栏监听对象
 		onClickListener = new View.OnClickListener() {
 			@Override
@@ -857,6 +863,11 @@ public class XYPayCenterActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (HttpUtils.isNetworkAvailable(getApplicationContext())) {// 网络可用
+					//如果没有resouceid则重新获取
+					if (payArgs.resource_id.equals("")){
+						getPayResourceidMessage();
+						return;
+					}
 					if (v.getId() == creditcard_submitpaybtnId) {// 信用卡付款
 						payCount = input_paynum_edittext.getText().toString()
 								.trim();
@@ -1088,15 +1099,21 @@ public class XYPayCenterActivity extends Activity {
 	}
 
 	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {// 补货回退键
 
-//			if(getWindow().getAttributes().softInputMode==WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED){
-//				//隐藏软键盘
-//				getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-//				getWindow().getAttributes().softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED;
-//			}
-//			else
+			if(getWindow().getAttributes().softInputMode==WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED){
+				//隐藏软键盘
+				getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+				getWindow().getAttributes().softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN;
+				return true;
+			}
+			else
 			if ((dialog == null) || !dialog.isShowing()) {
 				alertDialog = DialogUtils.createConfirmExitDialog(
 						XYPayCenterActivity.this, mPayCallback, status);

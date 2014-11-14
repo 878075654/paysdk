@@ -37,11 +37,11 @@ public class XYPaySDK {
 	 * @param isDebug	是否使用debug模式
 	 * @param platform	接入的游戏平台的参数
 	 */
-	public static void initSDK(Context context,String platform,boolean isDebug){
+	public static void initSDK(Context context,boolean isDebug){
 		SharedPreferences sharedPreferences =context.getSharedPreferences("settings", Context.MODE_PRIVATE); 
 		SharedPreferences.Editor editor = sharedPreferences.edit();
 		editor.putBoolean("isDebug", isDebug);
-		editor.putString("platform", platform);
+
 		editor.commit();
 	}
 	

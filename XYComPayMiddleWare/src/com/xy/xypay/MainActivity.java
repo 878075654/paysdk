@@ -35,7 +35,7 @@ public class MainActivity extends Activity{
 		testBtn = (Button)this.findViewById(R.id.test);
 		textsuccess=(TextView)this.findViewById(R.id.textsuccess);
 		//初始化SDK
-		XYPaySDK.initSDK(getApplicationContext(), "lol", true);
+		XYPaySDK.initSDK(getApplicationContext(), true);
 		//注册支付的回调接口
 		XYPaySDK.setOnPayCallback(new XYPayCallback() {
 			@Override
