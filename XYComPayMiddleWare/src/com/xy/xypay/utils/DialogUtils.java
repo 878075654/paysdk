@@ -37,7 +37,7 @@ public class DialogUtils {
 	}
 	/** 
      * 得到自定义的progressDialog,用来显示网络请求的加载动画
-     * @param context 
+     * @param context  显示dialog的content
      * @param msg 加载信息
      * @return 
      */  

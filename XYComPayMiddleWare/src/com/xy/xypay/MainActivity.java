@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.TextView;
 import com.xy.xycompaymiddleware.R;
 import com.xy.xypay.bean.PayArgs;
 import com.xy.xypay.inters.XYPayCallback;
@@ -23,7 +24,7 @@ public class MainActivity extends Activity{
 	
 	Button btnButton;
 	Button testBtn;
-	
+	TextView textsuccess;
 	boolean flag  = true;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MainActivity extends Activity{
 		
 		btnButton = (Button)this.findViewById(R.id.btn);
 		testBtn = (Button)this.findViewById(R.id.test);
-		
+		textsuccess=(TextView)this.findViewById(R.id.textsuccess);
 		//初始化SDK
 		XYPaySDK.initSDK(getApplicationContext(), "lol", true);
 		//注册支付的回调接口
@@ -42,12 +43,15 @@ public class MainActivity extends Activity{
 				switch (status) {
 				case XYPaySDK.XYPay_RESULT_CODE_CANCEL://支付取消
 					StringUtils.printLog(true, "getPayStatus"+status,"支付取消");
+					textsuccess.setText("getPayStatus		"+status+"			支付取消");
 					break;
 				case XYPaySDK.XYPay_RESULT_CODE_SUCCESS://支付成功
 					StringUtils.printLog(true, "getPayStatus"+status,"支付成功");
+					textsuccess.setText("getPayStatus		"+status+"			支付成功");
 					break;
 				case XYPaySDK.XYPay_RESULT_CODE_FAILURE://支付失败
 					StringUtils.printLog(true, "getPayStatus"+status,"支付失败");
+					textsuccess.setText("getPayStatus		"+status+"			支付失败");
 					break;
 				}
 			}
@@ -66,7 +70,7 @@ public class MainActivity extends Activity{
 				payArg.appExtra1="";
 				payArg.appExtra2="";
 				//下面是测试临时用的
-				payArg.resource_id = "1123107";//应用的appid
+//				payArg.resource_id = "1123107";//应用的appid
 
 //					payArg.sid = "1";//区服ID
 //					payArg.pay_rmb = "6";//充值金额

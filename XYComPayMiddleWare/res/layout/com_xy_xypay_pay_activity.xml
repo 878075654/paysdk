@@ -55,7 +55,8 @@
             android:id="@+id/radiogroup"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:scrollbars="@null" >
+            android:scrollbars="@null"
+            android:background="#f4eade" >
 
             <!-- 左边侧导航栏 -->
 

@@ -227,6 +227,13 @@ public class XYPayCenterActivity extends Activity {
 			if (loadingDialog != null && loadingDialog.isShowing()) {
 				loadingDialog.dismiss();
 			}
+			switch (msg.what){
+				case  1:
+					exchangetextlabel.setText( "1元=" + rmb_ratio
+							+ game_currency_name);
+					return;
+
+			}
 			if (!StringUtils.isEmpty((String) msg.obj)) {
 				JSONObject jsonObject = null;
 				switch (msg.what) {
@@ -390,7 +397,7 @@ public class XYPayCenterActivity extends Activity {
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
 				if ("".equals(s.toString().trim()) || s == null) {
-					exchangetextlabel.setText("50元=500"+game_currency_name);
+					exchangetextlabel.setText("1元="+rmb_ratio+game_currency_name);
 				} else {
 					int price = Integer.parseInt(s.toString());
 					exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
@@ -577,7 +584,7 @@ public class XYPayCenterActivity extends Activity {
 						exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
 								+ game_currency_name);
 					} else {
-						exchangetextlabel.setText("50元=500蓝钻");
+						exchangetextlabel.setText("1元="+rmb_ratio+game_currency_name);
 					}
 					// 设置支付方式
 					payType = "upmpmobile";
@@ -612,7 +619,7 @@ public class XYPayCenterActivity extends Activity {
 						exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
 								+ game_currency_name);
 					} else {
-						exchangetextlabel.setText("50元=500蓝钻");
+						exchangetextlabel.setText("1元="+rmb_ratio+game_currency_name);
 					}
 					// 设置支付方式
 					payType = "alipaymobile/appnotify";
@@ -646,7 +653,7 @@ public class XYPayCenterActivity extends Activity {
 						exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
 								+ game_currency_name);
 					} else {
-						exchangetextlabel.setText("50元=500蓝钻");
+						exchangetextlabel.setText("1元="+rmb_ratio+game_currency_name);
 					}
 					// 设置支付方式
 					payType = "mo9mobile";
@@ -684,7 +691,7 @@ public class XYPayCenterActivity extends Activity {
 						exchangetextlabel.setText(price + "元=" + (price *rmb_ratio)
 								+ game_currency_name);
 					} else {
-						exchangetextlabel.setText("50元=500蓝钻");
+						exchangetextlabel.setText("1元="+rmb_ratio+game_currency_name);
 					}
 					// 设置支付方式
 					payType = "upmpmobile";
@@ -759,7 +766,7 @@ public class XYPayCenterActivity extends Activity {
 						exchangetextlabel.setText(price + "元=" + (price * rmb_ratio)
 								+ game_currency_name);
 					} else {
-						exchangetextlabel.setText("50元=500蓝钻");
+						exchangetextlabel.setText("1元="+rmb_ratio+game_currency_name);
 					}
 					payType = "heepaymobile";
 					junwangViewInclude.setVisibility(View.VISIBLE);
@@ -1084,11 +1091,13 @@ public class XYPayCenterActivity extends Activity {
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {// 补货回退键
 
-			if(getWindow().getAttributes().softInputMode==WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED){
-				//隐藏软键盘
-				getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-				getWindow().getAttributes().softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED;
-			}else if ((dialog == null) || !dialog.isShowing()) {
+//			if(getWindow().getAttributes().softInputMode==WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED){
+//				//隐藏软键盘
+//				getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+//				getWindow().getAttributes().softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED;
+//			}
+//			else
+			if ((dialog == null) || !dialog.isShowing()) {
 				alertDialog = DialogUtils.createConfirmExitDialog(
 						XYPayCenterActivity.this, mPayCallback, status);
 				alertDialog.show();
@@ -1218,7 +1227,7 @@ public class XYPayCenterActivity extends Activity {
 	private  void splitJsonResouceid(String result){
 		try{
 			if(result.equals("")){
-				DialogUtils.showToast(this,"返回数据错误");
+				StringUtils.printLog(isDebug, "返回JSON", "result等于“”");
 				return;
 			}
 			JSONObject jsonObject2 = new JSONObject(result);
@@ -1229,12 +1238,15 @@ public class XYPayCenterActivity extends Activity {
 				payArgs.resource_id=jso.getString("resource_id");
 				rmb_ratio=Integer.parseInt(jso.getString("rmb_ratio"));
 				game_currency_name=jso.getString("game_currency_name");
+				StringUtils.printLog(isDebug, "返回JSON","成功");
+				handler.sendEmptyMessage(1);
 			}else {
 				//失败
-				DialogUtils.showToast(this,jsonObject2.getString("msg"));
+				StringUtils.printLog(isDebug, "返回JSON","失败 msg=  "+jsonObject2.getString("msg"));
 			}
 		}catch (JSONException e){
-			DialogUtils.showToast(this,"返回数据错误");
+			StringUtils.printLog(isDebug, "返回JSON","JSON解析错误");
+
 e.printStackTrace();
 		}
 	}

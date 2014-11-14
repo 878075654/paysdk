@@ -313,7 +313,7 @@ public class XYPayUtiles {
 		Set<Map.Entry<String, String>> entries = null;
 		Iterator<Map.Entry<String, String>> iterator = null;
 		List<String> list = null;
-		StringBuffer sb = new StringBuffer("582df15de91b3f12d8e710073e43f4f8");
+		StringBuffer sb = new StringBuffer("mcx+&C%E5ecPo3LG");
 		if (args == null || args.size() == 0)
 			return null;
 		entries = args.entrySet();

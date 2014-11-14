@@ -31,7 +31,7 @@ import org.apache.http.params.CoreConnectionPNames;
  */
 public class HttpUtils {
 
-	public static final String resourceidMessageUrl="ssssss";
+	public static final String resourceidMessageUrl="http://cn.passport.xyandroid.com/inapi/gamePayInfo/";
 
 	private HttpUtils() {
 	}
@@ -72,7 +72,7 @@ public class HttpUtils {
 		try {
 			if (!StringUtils.isEmpty(path)) {
 				URL url = new URL(path);
-				StringUtils.printLog(isDebug, "doGetRequest()访问Url",
+				StringUtils.printLog(true, "doGetRequest()访问Url",
 						"response url= " + url);
 				HttpURLConnection httpURLConnection = (HttpURLConnection) url
 						.openConnection();
@@ -164,6 +164,7 @@ public class HttpUtils {
 						builder.append(line);
 					}
 					 result = builder.toString().trim();
+
 				}
 
 			}
@@ -172,6 +173,9 @@ public class HttpUtils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+////		if(isDebug){
+//			result="{\"ret\":0,\"msg\":0,\"data\":{\"resource_id\":\"1123107\",\"rmb_ratio\":\"100\",\"game_currency_name\":\"元宝\"}}";
+////		}
 		return result;
 	}
 }

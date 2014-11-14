@@ -19,4 +19,12 @@
         android:layout_width="wrap_content"
         android:text="测试环境"
         />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="这里显示支付是否成功"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/btn"
+            android:id="@+id/textsuccess"/>
+
 </RelativeLayout>
