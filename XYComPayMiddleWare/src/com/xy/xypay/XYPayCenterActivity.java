@@ -1217,8 +1217,9 @@ public class XYPayCenterActivity extends Activity {
 	}
 	private  void splitJsonResouceid(String result){
 		try{
-			if(result==""){
-
+			if(result.equals("")){
+				DialogUtils.showToast(this,"返回数据错误");
+				return;
 			}
 			JSONObject jsonObject2 = new JSONObject(result);
 				int ret=jsonObject2.getInt("ret");
