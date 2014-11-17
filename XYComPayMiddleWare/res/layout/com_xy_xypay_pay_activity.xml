@@ -179,6 +179,7 @@
                 android:background="@drawable/com_xy_xypay_input_bg"
                 android:gravity="right|center_vertical"
                 android:hint="充值金额"
+                android:imeOptions="actionDone"
                 android:inputType="number"
                 android:maxLength="4"
                 android:paddingLeft="4dp"

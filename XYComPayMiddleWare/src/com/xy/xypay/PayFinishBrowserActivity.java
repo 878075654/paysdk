@@ -63,7 +63,6 @@ public class PayFinishBrowserActivity extends Activity {
 			super.handleMessage(msg);
 		}
 	};
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 

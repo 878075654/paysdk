@@ -88,7 +88,7 @@ public class ResourceUtil {
 	 * TODO 获取配置文件颜色id
 	 *  @param paramContext
 	 *  @param paramString
-	 * @return int 
+	 * @return int
 	 */
 	public static int getColorId(Context paramContext, String paramString) {
 		return paramContext.getResources().getIdentifier(paramString, "color",
